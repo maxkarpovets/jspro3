@@ -1,5 +1,5 @@
 ### Debounce 
-
+```
 function debounce(f, ms) {
   var state = null;
   var COOLDOWN = 1;
@@ -23,13 +23,14 @@ setTimeout( function() { f(3) }, 100); // -
 setTimeout( function() { f(4) }, 1100); // +
 setTimeout( function() { f(5) }, 1500); // -
 
-
-### window.requestAnimationFrame()
+```
+### requestAnimationFrame
 
 http://plnkr.co/edit/QKkOvATRaCMQBXSbbCdN?p=preview
 
 
 ### Immutable
+```
 var map1 = Immutable.Map({a:1, b:2, c:3});
 var map2 = map1.set('b', 50);
 map1.get('b'); // 2
@@ -40,9 +41,9 @@ console.log(map2)
 var list = Immutable.List([ 1, 2, 3 ]);
 list.push('333');
 console.log(list.toJS());
-
+```
 ### Manifest file
-
+```
 <html manifest="assets/cache.manifest">
 
 CACHE MANIFEST
@@ -57,7 +58,7 @@ CACHE MANIFEST
 	../../app/scripts/jquery-3.1.1.min.js
 	NETWORK:
 	*
-
+```
 ### Factory design pattern
 ```
 function Factory() {
