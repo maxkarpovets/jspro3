@@ -233,78 +233,7 @@ function run() {
     log.show();
 }
 ```
-
-# Proxy
-```
-function GeoCoder() {
  
-    this.getLatLng = function(address) {
-        
-        if (address === "Amsterdam") {
-            return "52.3700° N, 4.8900° E";
-        } else if (address === "London") {
-            return "51.5171° N, 0.1062° W";
-        } else if (address === "Paris") {
-            return "48.8742° N, 2.3470° E";
-        } else if (address === "Berlin") {
-            return "52.5233° N, 13.4127° E";
-        } else {
-            return "";
-        }
-    };
-}
- 
-function GeoProxy() {
-    var geocoder = new GeoCoder();
-    var geocache = {};
- 
-    return {
-        getLatLng: function(address) {
-            if (!geocache[address]) {
-                geocache[address] = geocoder.getLatLng(address);
-            }
-            log.add(address + ": " + geocache[address]);
-            return geocache[address];
-        },
-        getCount: function() {
-            var count = 0;
-            for (var code in geocache) { count++; }
-            return count;
-        }
-    };
-};
- 
-// log helper
- 
-var log = (function() {
-    var log = "";
- 
-    return {
-        add: function(msg) { log += msg + "\n"; },
-        show: function() { alert(log); log = ""; }
-    }
-})();
- 
-function run() {
-    var geo = new GeoProxy();
- 
-    // geolocation requests
- 
-    geo.getLatLng("Paris");
-    geo.getLatLng("London");
-    geo.getLatLng("London");
-    geo.getLatLng("London");
-    geo.getLatLng("London");
-    geo.getLatLng("Amsterdam");
-    geo.getLatLng("Amsterdam");
-    geo.getLatLng("Amsterdam");
-    geo.getLatLng("Amsterdam");
-    geo.getLatLng("London");
-    geo.getLatLng("London");
- 
-    log.show();
-}
-```
 # Tasks 
 
 ### 1
@@ -314,15 +243,12 @@ function run() {
 Реалізувати Object clarkKent і зробити з нього супермена за домомогою декоратора.
 
 ### 3
-Реалізувати проксі для отримання статусу квитка. ( Перевіряти чи дійсний квиток чи ні за датою ) 
-
-### 4
 Реалізувати фабрику, для створення квитків (квитки бувають різних типів) 
 
-### 5 
+### 4 
 Створіть батьківський клас Human, який буде приймати 2 аргументи (ім"я та вік), та має метод sayHello. Також створіть 2 підкласи - Man і Woman які будуть наслідувати клас Human, а також мати власні методи: doShopping(data), drink(data).
 
-### 6
+### 5
 Написати фукнцію, яка буде викликатись лише тоді, коли юзер закінчив скролл.
 
 ## Homework
